@@ -31,7 +31,7 @@ namespace Algorithms
             {
                 Console.Write(x + " ");
             }
-            Console.Write("\n**************************\n");
+            Console.Write("\n-------------------------------------------------------------------\n");
             Console.WriteLine("QuickSort");
             List<int> unsortedQS = new List<int>();
             Console.WriteLine("Unsorted Array: ");
@@ -144,7 +144,6 @@ namespace Algorithms
                     int tmp = array[lowIndex];
                     array[lowIndex] = array[i];
                     array[i] = tmp;
-
                 }
             }
 
@@ -153,9 +152,6 @@ namespace Algorithms
             array[high] = temp;
 
             return lowIndex + 1;
-
-          
         }
-
-        }
+    }
 }
