@@ -2,3 +2,4 @@
 Algorithms in C#
 
 *MergeSort
+*QuickSort
