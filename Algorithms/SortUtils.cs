@@ -9,20 +9,21 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            List<int> unsorted = new List<int>();
+            List<int> unsortedMS = new List<int>();
             List<int> sorted;
 
             Random random = new Random();
 
+            Console.WriteLine("MergeSort");
             Console.WriteLine("Unsorted Array: ");
             for (int i = 0; i < 20; i++)
             {
-                unsorted.Add(random.Next(0, 100));
-                Console.Write(unsorted[i] + " ");
+                unsortedMS.Add(random.Next(0, 100));
+                Console.Write(unsortedMS[i] + " ");
             }
             Console.WriteLine();
 
-            sorted = MergeSort(unsorted);
+            sorted = MergeSort(unsortedMS);
 
             Console.WriteLine("Sorted Array: ");
 
@@ -30,7 +31,26 @@ namespace Algorithms
             {
                 Console.Write(x + " ");
             }
-            Console.Write("\n");
+            Console.Write("\n**************************\n");
+            Console.WriteLine("QuickSort");
+            List<int> unsortedQS = new List<int>();
+            Console.WriteLine("Unsorted Array: ");
+
+            for (int i = 0; i < 20; i++)
+            {
+                unsortedQS.Add(random.Next(0, 100));
+                Console.Write(unsortedQS[i] + " ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Sorted Array: ");
+
+            QuickSort(unsortedQS, 0, unsortedQS.Count() - 1);
+
+            foreach (int x in unsortedQS)
+            {
+                Console.Write(x + " ");
+            }
 
 
         }
@@ -100,5 +120,42 @@ namespace Algorithms
 
             return result;
         }
-    }
+
+        private static void QuickSort(List<int> array, int low, int high)
+        {
+            if (low < high)
+            {
+                int pivot = Partition(array, low, high);
+                QuickSort(array, low, pivot - 1);
+                QuickSort(array, pivot + 1, high);
+            }
+        }
+
+        private static int Partition(List<int> array, int low, int high)
+        {
+            int pivot = array[high];
+            int lowIndex = low - 1;
+
+            for (int i = low; i < high; i++)
+            {
+                if (array[i] <= pivot)
+                {
+                    lowIndex++;
+                    int tmp = array[lowIndex];
+                    array[lowIndex] = array[i];
+                    array[i] = tmp;
+
+                }
+            }
+
+            int temp = array[lowIndex + 1];
+            array[lowIndex + 1] = array[high];
+            array[high] = temp;
+
+            return lowIndex + 1;
+
+          
+        }
+
+        }
 }
