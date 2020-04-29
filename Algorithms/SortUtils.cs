@@ -51,8 +51,6 @@ namespace Algorithms
             {
                 Console.Write(x + " ");
             }
-
-
         }
 
         private static List<int> MergeSort(List<int> unsorted)
