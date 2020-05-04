@@ -51,6 +51,24 @@ namespace Algorithms
             {
                 Console.Write(x + " ");
             }
+
+            Console.Write("\n-------------------------------------------------------------------\n");
+            Console.WriteLine("Binary Search - Iterative");
+
+            List<int> array = new List<int> { 1, 3, 5, 7, 9, 13, 16, 17, 18, 20, 24, 27, 30, 33, 36, 39, 44, 46};
+            
+            foreach (int x in array)
+            {
+                Console.Write(x + " ");
+            }
+            Console.Write("\n");
+            Console.Write("Searching for 3:\n");
+
+            Console.WriteLine(BinarySearch(array, 3));
+            Console.Write("\n");
+            Console.Write("Searching for 46:\n");
+            Console.WriteLine(BinarySearch(array, 46));
+
         }
 
         private static List<int> MergeSort(List<int> unsorted)
@@ -150,6 +168,32 @@ namespace Algorithms
             array[high] = temp;
 
             return lowIndex + 1;
+        }
+
+        private static int? BinarySearch(List<int> array, int item)
+        {
+            int low = 0;
+            int high = array.Count - 1;
+
+            while (low <= high)
+            {
+                int mid = (high + low ) / 2;
+                int guess = array[mid];
+                Console.WriteLine("guess: " + guess);
+                if (guess == item)
+                {
+                    return mid;
+                }
+                else if (guess > item)
+                {
+                    high = mid - 1;
+                }
+                else 
+                {
+                    low = mid + 1;
+                }
+            }
+            return null;
         }
     }
 }
