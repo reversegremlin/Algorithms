@@ -4,3 +4,5 @@ Algorithms in C#
 *MergeSort
 
 *QuickSort
+
+*BinarySearch (iterative)
