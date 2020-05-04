@@ -63,12 +63,13 @@ namespace Algorithms
             }
             Console.Write("\n");
             Console.Write("Searching for 3:\n");
-
             Console.WriteLine(BinarySearch(array, 3));
             Console.Write("\n");
             Console.Write("Searching for 46:\n");
             Console.WriteLine(BinarySearch(array, 46));
-
+            Console.Write("\n");
+            Console.Write("Searching for 2:\n");
+            Console.WriteLine(BinarySearch(array, 2));
         }
 
         private static List<int> MergeSort(List<int> unsorted)
