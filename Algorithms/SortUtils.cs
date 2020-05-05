@@ -70,6 +70,26 @@ namespace Algorithms
             Console.Write("\n");
             Console.Write("Searching for 2:\n");
             Console.WriteLine(BinarySearch(array, 2));
+            Console.WriteLine();
+            Console.Write("\n-------------------------------------------------------------------\n");
+            Console.WriteLine("SelectionSort");
+            Console.WriteLine("Unsorted Array: ");
+            List<int> unsortedSS = new List<int>();
+
+            for (int i = 0; i < 20; i++)
+            {
+                unsortedSS.Add(random.Next(0, 100));
+                Console.Write(unsortedSS[i] + " ");
+            }
+            Console.WriteLine();
+            SelectionSort(unsortedSS);
+            Console.WriteLine("Sorted Array: ");
+
+            foreach (int x in unsortedSS)
+            {
+                Console.Write(x + " ");
+            }
+
         }
 
         private static List<int> MergeSort(List<int> unsorted)
@@ -195,6 +215,29 @@ namespace Algorithms
                 }
             }
             return null;
+        }
+
+        private static void SelectionSort(List<int> array)
+        {
+            int arrayCount = array.Count();
+            int temp;
+            int smallestIndex;
+
+           for (int i = 0; i < arrayCount; i++)
+           {
+               smallestIndex = i;
+               for (int j = i + 1; j < arrayCount; j++ )
+               {
+                   if (array[j] < array[smallestIndex])
+                   {
+                       smallestIndex = j;
+                   }
+               }
+               temp = array[smallestIndex];
+               array[smallestIndex] = array[i];
+               array[i] = temp;
+           }
+
         }
     }
 }
