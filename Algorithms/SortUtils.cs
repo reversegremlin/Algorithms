@@ -89,6 +89,11 @@ namespace Algorithms
             {
                 Console.Write(x + " ");
             }
+            Console.WriteLine();
+            Console.Write("\n-------------------------------------------------------------------\n");
+            Console.WriteLine("SelectionSort");
+
+            Console.WriteLine(Factorial(20));
 
         }
 
@@ -237,6 +242,19 @@ namespace Algorithms
                array[smallestIndex] = array[i];
                array[i] = temp;
            }
+
+        }
+
+        private static long Factorial(long number)
+        {
+            if (number == 1)
+            {
+                return number;
+            }
+            else
+            {
+                return number * Factorial(number - 1);
+            }
 
         }
     }
