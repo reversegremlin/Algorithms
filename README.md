@@ -9,3 +9,6 @@ Algorithms in C#
 
 *BinarySearch (iterative)
 
+*Factorial
+
+*Fibonacci (recursive, dynamic, space optimized)
