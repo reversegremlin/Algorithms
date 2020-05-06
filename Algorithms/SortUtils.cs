@@ -91,7 +91,7 @@ namespace Algorithms
             }
             Console.WriteLine();
             Console.Write("\n-------------------------------------------------------------------\n");
-            Console.WriteLine("SelectionSort");
+            Console.WriteLine("Factorial 20");
 
             Console.WriteLine(Factorial(20));
 
