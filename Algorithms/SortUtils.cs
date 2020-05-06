@@ -94,6 +94,9 @@ namespace Algorithms
             Console.WriteLine("Factorial 20");
 
             Console.WriteLine(Factorial(20));
+            Console.WriteLine(FibonacciRecursive(9));
+            Console.WriteLine(FibonacciDynamic(9));
+            Console.WriteLine(FibonacciSpaceOptimized(9));
 
         }
 
@@ -255,7 +258,56 @@ namespace Algorithms
             {
                 return number * Factorial(number - 1);
             }
-
         }
+
+        private static int FibonacciRecursive(int number)
+        {
+            if (number == 0 || number == 1)
+            {
+                return number;
+            }
+            else 
+            {
+                return FibonacciRecursive(number - 1) + FibonacciRecursive(number - 2);
+            }
+        }
+
+        private static int FibonacciDynamic(int number)
+        {
+            int[] memo = new int[number + 2];
+            memo[0] = 0;
+            memo[1] = 1;
+
+            for (int i = 2; i <= number; i++)
+            {
+                memo[i] = memo[i - 1] + memo[i - 2];
+            }
+            return memo[number];
+        }
+
+        private static int FibonacciSpaceOptimized(int number)
+        {
+            int a = 0;
+            int b = 1;
+            int c;
+
+            if (number == 0)
+            {
+                return 0;
+            }
+
+            for (int i = 2; i <= number; i++)
+            {
+                c = a + b;
+                a = b;
+                b = c;
+            }
+
+            return b;
+
+
+        
+        }
+
     }
 }
