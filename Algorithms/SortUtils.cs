@@ -98,6 +98,42 @@ namespace Algorithms
             Console.WriteLine(FibonacciDynamic(9));
             Console.WriteLine(FibonacciSpaceOptimized(9));
 
+            Console.WriteLine();
+            Console.Write("\n-------------------------------------------------------------------\n");
+            Console.WriteLine("Adding Villagers to Dictionary...");
+
+            Dictionary<string, string> villagers = new Dictionary<string, string>();
+
+            villagers.Add("squirrel", "Hazel");
+            villagers.Add("eagle", "Keaton");
+            villagers.Add("duck", "Drake");
+            villagers.Add("bird", "Piper");
+            villagers.Add("cat", "Kiki");
+            villagers.Add("hamster", "Flurry");
+            villagers.Add("goat", "Velma");
+            villagers.Add("hippo", "Harry");
+            villagers.Add("ostrich", "Sandy");
+
+            foreach (KeyValuePair<string, string> kvp in villagers)
+            {
+                Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+            }
+
+            Console.WriteLine("Removing Sandy...");
+
+            villagers.Remove("ostrich");
+
+            if (!villagers.ContainsKey("ostrich"))
+            {
+                Console.WriteLine("No Ostriches here... Sandy is gone");
+            }
+
+            if (villagers.ContainsKey("squirrel"))
+            {
+                Console.WriteLine("Whew, Hazel is still here!");
+            }
+
+
         }
 
         private static List<int> MergeSort(List<int> unsorted)
