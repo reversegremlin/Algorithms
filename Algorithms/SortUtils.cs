@@ -133,6 +133,28 @@ namespace Algorithms
                 Console.WriteLine("Whew, Hazel is still here!");
             }
 
+            // Does a string have all unique characters?
+
+            string test = new string("abcdefg");
+            string test2 = new string("xnadiax");
+
+            Console.WriteLine("Checking does string have unique chars");
+            Console.WriteLine(DoesStringHaveUniqueChars(test));
+            Console.WriteLine(DoesStringHaveUniqueChars(test2));
+
+            Console.WriteLine("Checking  it one string is a permutation of another");
+            Console.WriteLine(CheckPermutations("abc", "abd"));
+            Console.WriteLine(CheckPermutations("abc", "abcd"));
+            Console.WriteLine(CheckPermutations("abc", "bac"));
+
+            Console.WriteLine("URLIfy a string");
+
+            Console.WriteLine("URLify:  Me and Mrs Jones");
+            string teststring = URLIfy("Me and Mrs Jones");
+            Console.WriteLine(teststring);
+
+            Console.WriteLine(HasPallindromePermutation("taco cat"));
+            Console.WriteLine(HasPallindromePermutation("taco cats"));
 
         }
 
@@ -221,7 +243,7 @@ namespace Algorithms
             {
                 if (array[i] <= pivot)
                 {
-                    lowIndex++;
+                    lowIndex++;  //Move the index to the item we want to  move
                     int tmp = array[lowIndex];
                     array[lowIndex] = array[i];
                     array[i] = tmp;
@@ -340,6 +362,124 @@ namespace Algorithms
             }
 
             return b;
+        }
+
+        private static bool DoesStringHaveUniqueChars(string test)
+        {
+            Dictionary <char, bool> uniqueDict = new Dictionary<char, bool>();
+
+            foreach (char c in test.ToCharArray())
+            {
+                if (uniqueDict.ContainsKey(c))
+                {
+                    Console.WriteLine("Found duplicate char"); 
+                    return false;
+                }
+                else 
+                {
+                    uniqueDict.Add(c, true);
+                }
+            }
+            return true;
+        }
+
+        private static bool CheckPermutations(string one, string two)
+        {
+            if (one.Length != two.Length)
+            {
+                return false; //not same length, can't match
+            }
+
+            char [] chOne = one.ToCharArray();
+            char [] chTwo = two.ToCharArray();
+
+            Array.Sort(chOne);
+            Array.Sort(chTwo);
+
+            for (int i = 0; i < chOne.Length; i++)
+            {
+                if (chOne[i] != chTwo[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private static string URLIfy(string test)
+        {
+            //replace whitespace with %20
+            //"Mr John Smith  " = "Mr%20John%20Smith"
+            char [] testArray = test.ToCharArray();
+            List<char> newArray = new List<char>();
+
+            for (int  i = 0; i < testArray.Length; i++)
+            {
+                if (testArray[i] == ' ')
+                {
+                    newArray.Add('%');
+                    newArray.Add('2');
+                    newArray.Add('0');
+                }
+                else
+                {
+                    newArray.Add(testArray[i]);
+                }
+
+            }  
+            string str = new string(newArray.ToArray());
+            return str;
+
+        }
+
+        private static bool HasPallindromePermutation(string test)
+        {
+            //if it is odd, one char without a twin
+
+            string trimmed = test.Replace(" ", "");
+
+            char [] stringArray = trimmed.ToCharArray();
+
+            Dictionary<char, int> charDict = new Dictionary<char, int>();
+
+            for (int i = 0; i < trimmed.Length; i++)
+            {
+                if (charDict.ContainsKey(trimmed[i]))
+                {
+                    charDict[trimmed[i]]++;
+                }
+                else
+                {
+                    charDict.Add(trimmed[i], 1);
+                }
+            }
+
+            if (trimmed.Length % 2 == 0)  //even, so all must be even
+            {
+                foreach( KeyValuePair<char, int> kvp in charDict )
+                {
+                    if (kvp.Value % 2 != 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            else 
+            {
+                int oddCount = 0;
+                foreach( KeyValuePair<char, int> kvp in charDict )
+                {
+                    if (kvp.Value % 2 != 0)
+                    {
+                        oddCount++;
+                        if (oddCount > 1)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
 
     }
