@@ -1,5 +1,4 @@
-# Algorithms
-Algorithms in C#
+# Algorithms & Data Structures in C#
 
 *MergeSort
 
@@ -12,3 +11,11 @@ Algorithms in C#
 *Factorial
 
 *Fibonacci (recursive, dynamic, space optimized)
+
+*Unique Characters
+
+*Permutation Check
+
+*URLify spaces
+
+*Pallindrone Permutatin Check
