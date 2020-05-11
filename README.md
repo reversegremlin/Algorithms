@@ -18,4 +18,4 @@
 
 *URLify spaces
 
-*Pallindrone Permutatin Check
+*Palindrone Permutation Check
