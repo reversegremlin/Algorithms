@@ -44,10 +44,8 @@ namespace Algorithms
                 }
                 n = n.next;
             }
-
             return head;
         }
-
     }
     class Program
     {
@@ -230,14 +228,15 @@ namespace Algorithms
             Node n1 = node1.deleteNode(node1, 11);
 
             Console.Write("\n-------------------------------------------------------------------\n");
-
-
-            while (n1 != null)
+            traverseList(node1);
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            for (int i = 1; i < 21; i++)
             {
-                Console.WriteLine(n1.data);
-                n1 = n1.next;
+                int num = random.Next(1, 100);
+                node1.appendToTail(num);
             }
-
+            traverseList(node1);
+         
         }
 
         private static List<int> MergeSort(List<int> unsorted)
@@ -385,7 +384,6 @@ namespace Algorithms
                array[smallestIndex] = array[i];
                array[i] = temp;
            }
-
         }
 
         private static long Factorial(long number)
@@ -562,6 +560,15 @@ namespace Algorithms
                 }
             }
             return true;
+        }
+        public static void traverseList(Node head)
+        {
+            if (head == null)
+            {
+                return;
+            }
+            Console.WriteLine(head.data);
+            traverseList(head.next);
         }
     }
 }
