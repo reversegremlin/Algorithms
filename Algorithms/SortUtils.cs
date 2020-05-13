@@ -5,6 +5,50 @@ using System.Text;
 
 namespace Algorithms
 {
+    public class Node 
+    {
+        public Node next = null;
+        public int data;
+
+        public Node(int d)
+        {
+            data = d;
+        }
+
+        public void appendToTail(int d)
+        {
+            Node end = new Node(d);
+            Node n = this;
+            while (n.next != null)
+            {
+                n = n.next;
+            }
+            n.next = end;
+        }
+
+        public Node deleteNode(Node head, int d)
+        {
+            Node n = head;
+
+            if (n.data == d)
+            {
+                return head.next;
+            }
+
+            while (n.next != null)
+            {
+                if (n.next.data == d)
+                {
+                    n.next = n.next.next;
+                    return head;
+                }
+                n = n.next;
+            }
+
+            return head;
+        }
+
+    }
     class Program
     {
         static void Main(string[] args)
@@ -155,6 +199,44 @@ namespace Algorithms
 
             Console.WriteLine(HasPallindromePermutation("taco cat"));
             Console.WriteLine(HasPallindromePermutation("taco cats"));
+
+
+            LinkedList<int> linkedInts = new LinkedList<int>();
+            linkedInts.AddLast(1);
+            linkedInts.AddLast(5);
+            linkedInts.AddLast(7);
+            linkedInts.AddLast(3);
+            
+            foreach (int num in linkedInts)
+            {
+                Console.WriteLine(num);
+            }
+
+            LinkedListNode<int> node = linkedInts.First;
+            Console.WriteLine(node.Next.Value);
+
+            Node node1 = new Node(9);
+            node1.appendToTail(11);
+            node1.appendToTail(13);
+
+            Node n = node1;
+
+            while (n != null)
+            {
+                Console.WriteLine(n.data);
+                n = n.next;
+            }
+
+            Node n1 = node1.deleteNode(node1, 11);
+
+            Console.Write("\n-------------------------------------------------------------------\n");
+
+
+            while (n1 != null)
+            {
+                Console.WriteLine(n1.data);
+                n1 = n1.next;
+            }
 
         }
 
@@ -439,7 +521,7 @@ namespace Algorithms
             string trimmed = test.Replace(" ", "");
 
             char [] stringArray = trimmed.ToCharArray();
-
+            
             Dictionary<char, int> charDict = new Dictionary<char, int>();
 
             for (int i = 0; i < trimmed.Length; i++)
@@ -481,6 +563,5 @@ namespace Algorithms
             }
             return true;
         }
-
     }
 }
