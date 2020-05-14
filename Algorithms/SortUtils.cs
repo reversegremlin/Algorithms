@@ -5,86 +5,6 @@ using System.Text;
 
 namespace Algorithms
 {
-    public class Node 
-    {
-        public Node next = null;
-        public int data;
-
-        public Node(int d)
-        {
-            data = d;
-        }
-
-        public void appendToTail(int d)
-        {
-            Node end = new Node(d);
-            Node n = this;
-            while (n.next != null)
-            {
-                n = n.next;
-            }
-            n.next = end;
-        }
-
-        public Node deleteNode(Node head, int d)
-        {
-            Node n = head;
-
-            if (n.data == d)
-            {
-                return head.next;
-            }
-
-            while (n.next != null)
-            {
-                if (n.next.data == d)
-                {
-                    n.next = n.next.next;
-                    return head;
-                }
-                n = n.next;
-            }
-            return head;
-        }
-
-        //traverse the list
-        //put each item in a hash table
-        //loop again, look for matches
-
-        public Node deleteDuplicates(Node head)
-        {
-            Node n = head;
-
-            if (n.next == null)
-            {
-                return head;
-            }
-
-            Dictionary<int, int> nodeDict = new Dictionary<int, int>();
-
-            while (n.next != null)
-            {
-                if (nodeDict.ContainsKey(n.data))
-                {
-                    Console.WriteLine("adding " + n.data);
-                    nodeDict[n.data]++;
-                }
-                else
-                {
-                    Console.WriteLine("adding " + n.data);
-                    nodeDict[n.data] = 1;
-                }
-                n = n.next;
-
-            }
-            foreach (KeyValuePair<int, int> kvp in nodeDict)
-            {
-                Console.WriteLine("Key: {0} Value: {1}", kvp.Key, kvp.Value);
-            }
-            return head;
-
-        }
-    }
     class Program
     {
         static void Main(string[] args)
@@ -296,15 +216,16 @@ namespace Algorithms
             dupeList.appendToTail(9);
             dupeList.appendToTail(9);
             dupeList.appendToTail(10);
-
-            traverseList(dupeList);
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            traverseList(dupeList);            
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Delete Duplicates");
             deleteDuplicates(dupeList);
             traverseList(dupeList);
             Console.Write("\n-------------------------------------------------------------------\n");    
             Console.WriteLine("removing 2nd from Last");
             RemoveKthFromLast(dupeList, 2);
             traverseList(dupeList);
-
         }
 
         private static List<int> MergeSort(List<int> unsorted)
@@ -640,7 +561,7 @@ namespace Algorithms
         }
 
 
-         public static Node deleteDuplicates(Node head)
+        public static Node deleteDuplicates(Node head)
         {
             Node  n = head;
 
@@ -682,7 +603,6 @@ namespace Algorithms
             turtle.next = turtle.next.next;
 
             return head;
-
         }
     }
 }
