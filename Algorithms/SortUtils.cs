@@ -46,6 +46,44 @@ namespace Algorithms
             }
             return head;
         }
+
+        //traverse the list
+        //put each item in a hash table
+        //loop again, look for matches
+
+        public Node deleteDuplicates(Node head)
+        {
+            Node n = head;
+
+            if (n.next == null)
+            {
+                return head;
+            }
+
+            Dictionary<int, int> nodeDict = new Dictionary<int, int>();
+
+            while (n.next != null)
+            {
+                if (nodeDict.ContainsKey(n.data))
+                {
+                    Console.WriteLine("adding " + n.data);
+                    nodeDict[n.data]++;
+                }
+                else
+                {
+                    Console.WriteLine("adding " + n.data);
+                    nodeDict[n.data] = 1;
+                }
+                n = n.next;
+
+            }
+            foreach (KeyValuePair<int, int> kvp in nodeDict)
+            {
+                Console.WriteLine("Key: {0} Value: {1}", kvp.Key, kvp.Value);
+            }
+            return head;
+
+        }
     }
     class Program
     {
@@ -236,7 +274,34 @@ namespace Algorithms
                 node1.appendToTail(num);
             }
             traverseList(node1);
-         
+            Console.Write("\n-------------------------------------------------------------------\n");    
+
+            int[] nums = { 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10 };
+
+            //LinkedList<int> dupeList = new LinkedList<int>(nums);
+            Node dupeList = new Node(1);
+            dupeList.appendToTail(1);
+            dupeList.appendToTail(2);
+            dupeList.appendToTail(3);
+            dupeList.appendToTail(4);
+            dupeList.appendToTail(5);
+            dupeList.appendToTail(5);
+            dupeList.appendToTail(6);
+            dupeList.appendToTail(7);
+            dupeList.appendToTail(8);
+            dupeList.appendToTail(9);
+            dupeList.appendToTail(9);
+            dupeList.appendToTail(9);
+            dupeList.appendToTail(9);
+            dupeList.appendToTail(9);
+            dupeList.appendToTail(9);
+            dupeList.appendToTail(10);
+
+            traverseList(dupeList);
+            deleteDuplicates(dupeList);
+            traverseList(dupeList);
+
+
         }
 
         private static List<int> MergeSort(List<int> unsorted)
@@ -570,5 +635,32 @@ namespace Algorithms
             Console.WriteLine(head.data);
             traverseList(head.next);
         }
+
+
+         public static Node deleteDuplicates(Node head)
+        {
+            Node  n = head;
+
+            Dictionary<int, int> nodeDict = new Dictionary<int, int>();
+            nodeDict.Add(n.data, 1);
+
+            while (n.next != null)
+            {
+
+                if (nodeDict.ContainsKey(n.next.data))
+                {   
+                    n.next = n.next.next;
+                }
+                else 
+                {
+                    nodeDict[n.next.data] = 1;
+                    n = n.next;
+                }
+                
+            }
+            return head;
+
+        }
+
     }
 }
