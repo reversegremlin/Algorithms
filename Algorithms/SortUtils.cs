@@ -300,7 +300,10 @@ namespace Algorithms
             traverseList(dupeList);
             deleteDuplicates(dupeList);
             traverseList(dupeList);
-
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("removing 2nd from Last");
+            RemoveKthFromLast(dupeList, 2);
+            traverseList(dupeList);
 
         }
 
@@ -659,8 +662,30 @@ namespace Algorithms
                 
             }
             return head;
-
         }
 
+        public static Node RemoveKthFromLast(Node head, int index)
+        {
+            int count = 1;
+            Node n = head;
+
+            while (n.next != null)
+            {
+                count++;
+                n = n.next;
+            }
+
+            n = head;
+            count = count - index;
+            for (int i = 1; i < count; i++)
+            {
+                n = n.next;
+            }
+
+            n.next = n.next.next;
+
+            return head;
+
+        }
     }
 }
