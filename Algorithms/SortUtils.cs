@@ -666,23 +666,20 @@ namespace Algorithms
 
         public static Node RemoveKthFromLast(Node head, int index)
         {
-            int count = 1;
+            int count = 0;
             Node n = head;
+            Node turtle = head;
 
             while (n.next != null)
             {
                 count++;
+                if (count > index)
+                {
+                    turtle = turtle.next;
+                }
                 n = n.next;
             }
-
-            n = head;
-            count = count - index;
-            for (int i = 1; i < count; i++)
-            {
-                n = n.next;
-            }
-
-            n.next = n.next.next;
+            turtle.next = turtle.next.next;
 
             return head;
 
