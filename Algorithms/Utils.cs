@@ -240,8 +240,21 @@ namespace Algorithms
             {
                 Console.WriteLine(stack.Pop());
             }
-            
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Queue");
 
+            MyQueue queue = new MyQueue();
+            queue.Add(2);
+            queue.Add(4);
+            queue.Add(6);
+            queue.Add(8);
+            queue.Add(10);
+            
+            while (!queue.isEmpty())
+            {
+                Console.WriteLine(queue.Remove());
+            }
+            
         }
 
         private static List<int> MergeSort(List<int> unsorted)
