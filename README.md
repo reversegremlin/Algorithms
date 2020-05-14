@@ -23,3 +23,6 @@
 *Linked Lists (remove dupes, remove kth from last, traverse)
 
 *Stack
+
+*Queue
+
