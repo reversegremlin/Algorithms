@@ -19,3 +19,5 @@
 *URLify spaces
 
 *Palindrone Permutation Check
+
+*Linked Lists (remove dupes, remove kth from last, traverse)
