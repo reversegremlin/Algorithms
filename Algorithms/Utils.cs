@@ -226,6 +226,22 @@ namespace Algorithms
             Console.WriteLine("removing 2nd from Last");
             RemoveKthFromLast(dupeList, 2);
             traverseList(dupeList);
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Stack");
+
+            MyStack stack = new MyStack();
+            stack.Push(3);
+            stack.Push(5);
+            stack.Push(7);
+            stack.Push(9);
+            stack.Push(11);
+
+            while (!stack.IsEmpty())
+            {
+                Console.WriteLine(stack.Pop());
+            }
+            
+
         }
 
         private static List<int> MergeSort(List<int> unsorted)
@@ -559,8 +575,6 @@ namespace Algorithms
             Console.WriteLine(head.data);
             traverseList(head.next);
         }
-
-
         public static Node deleteDuplicates(Node head)
         {
             Node  n = head;
