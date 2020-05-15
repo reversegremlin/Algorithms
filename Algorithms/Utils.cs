@@ -168,14 +168,14 @@ namespace Algorithms
                 Console.WriteLine(num);
             }
 
-            LinkedListNode<int> node = linkedInts.First;
-            Console.WriteLine(node.Next.Value);
+            LinkedListNode<int> LinkedListNode = linkedInts.First;
+            Console.WriteLine(LinkedListNode.Next.Value);
 
-            Node node1 = new Node(9);
-            node1.appendToTail(11);
-            node1.appendToTail(13);
+            LinkedListNode LinkedListNode1 = new LinkedListNode(9);
+            LinkedListNode1.appendToTail(11);
+            LinkedListNode1.appendToTail(13);
 
-            Node n = node1;
+            LinkedListNode n = LinkedListNode1;
 
             while (n != null)
             {
@@ -183,23 +183,23 @@ namespace Algorithms
                 n = n.next;
             }
 
-            Node n1 = node1.deleteNode(node1, 11);
+            LinkedListNode n1 = LinkedListNode1.deleteNode(LinkedListNode1, 11);
 
             Console.Write("\n-------------------------------------------------------------------\n");
-            traverseList(node1);
+            traverseList(LinkedListNode1);
             Console.Write("\n-------------------------------------------------------------------\n");    
             for (int i = 1; i < 21; i++)
             {
                 int num = random.Next(1, 100);
-                node1.appendToTail(num);
+                LinkedListNode1.appendToTail(num);
             }
-            traverseList(node1);
+            traverseList(LinkedListNode1);
             Console.Write("\n-------------------------------------------------------------------\n");    
 
             int[] nums = { 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10 };
 
             //LinkedList<int> dupeList = new LinkedList<int>(nums);
-            Node dupeList = new Node(1);
+            LinkedListNode dupeList = new LinkedListNode(1);
             dupeList.appendToTail(1);
             dupeList.appendToTail(2);
             dupeList.appendToTail(3);
@@ -579,7 +579,7 @@ namespace Algorithms
             }
             return true;
         }
-        public static void traverseList(Node head)
+        public static void traverseList(LinkedListNode head)
         {
             if (head == null)
             {
@@ -588,23 +588,23 @@ namespace Algorithms
             Console.WriteLine(head.data);
             traverseList(head.next);
         }
-        public static Node deleteDuplicates(Node head)
+        public static LinkedListNode deleteDuplicates(LinkedListNode head)
         {
-            Node  n = head;
+            LinkedListNode  n = head;
 
-            Dictionary<int, int> nodeDict = new Dictionary<int, int>();
-            nodeDict.Add(n.data, 1);
+            Dictionary<int, int> LinkedListNodeDict = new Dictionary<int, int>();
+            LinkedListNodeDict.Add(n.data, 1);
 
             while (n.next != null)
             {
 
-                if (nodeDict.ContainsKey(n.next.data))
+                if (LinkedListNodeDict.ContainsKey(n.next.data))
                 {   
                     n.next = n.next.next;
                 }
                 else 
                 {
-                    nodeDict[n.next.data] = 1;
+                    LinkedListNodeDict[n.next.data] = 1;
                     n = n.next;
                 }
                 
@@ -612,11 +612,11 @@ namespace Algorithms
             return head;
         }
 
-        public static Node RemoveKthFromLast(Node head, int index)
+        public static LinkedListNode RemoveKthFromLast(LinkedListNode head, int index)
         {
             int count = 0;
-            Node n = head;
-            Node turtle = head;
+            LinkedListNode n = head;
+            LinkedListNode turtle = head;
 
             while (n.next != null)
             {

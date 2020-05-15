@@ -5,20 +5,20 @@ using System.Text;
 
 namespace Algorithms
 {
-    public class Node
+    public class LinkedListNode
     {
-        public Node next = null;
+        public LinkedListNode next = null;
         public int data;
 
-        public Node(int d)
+        public LinkedListNode(int d)
         {
             data = d;
         }
 
         public void appendToTail(int d)
         {
-            Node end = new Node(d);
-            Node n = this;
+            LinkedListNode end = new LinkedListNode(d);
+            LinkedListNode n = this;
             while (n.next != null)
             {
                 n = n.next;
@@ -26,9 +26,9 @@ namespace Algorithms
             n.next = end;
         }
 
-        public Node deleteNode(Node head, int d)
+        public LinkedListNode deleteNode(LinkedListNode head, int d)
         {
-            Node n = head;
+            LinkedListNode n = head;
 
             if (n.data == d)
             {
