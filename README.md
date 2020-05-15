@@ -26,4 +26,8 @@
 
 *Queue
 
-*Tree
+*Binary Search Tree (contains, traverse)
+
+*Graph (DFS)
+
+
