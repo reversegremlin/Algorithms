@@ -15,7 +15,7 @@ namespace Algorithms
             data = d;
         }
 
-        public void appendToTail(int d)
+        public void AppendToTail(int d)
         {
             LinkedListNode end = new LinkedListNode(d);
             LinkedListNode n = this;
@@ -26,7 +26,7 @@ namespace Algorithms
             n.next = end;
         }
 
-        public LinkedListNode deleteNode(LinkedListNode head, int d)
+        public LinkedListNode DeleteNode(LinkedListNode head, int d)
         {
             LinkedListNode n = head;
 

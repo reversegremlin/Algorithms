@@ -172,8 +172,8 @@ namespace Algorithms
             Console.WriteLine(LinkedListNode.Next.Value);
 
             LinkedListNode LinkedListNode1 = new LinkedListNode(9);
-            LinkedListNode1.appendToTail(11);
-            LinkedListNode1.appendToTail(13);
+            LinkedListNode1.AppendToTail(11);
+            LinkedListNode1.AppendToTail(13);
 
             LinkedListNode n = LinkedListNode1;
 
@@ -183,7 +183,7 @@ namespace Algorithms
                 n = n.next;
             }
 
-            LinkedListNode n1 = LinkedListNode1.deleteNode(LinkedListNode1, 11);
+            LinkedListNode n1 = LinkedListNode1.DeleteNode(LinkedListNode1, 11);
 
             Console.Write("\n-------------------------------------------------------------------\n");
             traverseList(LinkedListNode1);
@@ -191,7 +191,7 @@ namespace Algorithms
             for (int i = 1; i < 21; i++)
             {
                 int num = random.Next(1, 100);
-                LinkedListNode1.appendToTail(num);
+                LinkedListNode1.AppendToTail(num);
             }
             traverseList(LinkedListNode1);
             Console.Write("\n-------------------------------------------------------------------\n");    
@@ -200,22 +200,22 @@ namespace Algorithms
 
             //LinkedList<int> dupeList = new LinkedList<int>(nums);
             LinkedListNode dupeList = new LinkedListNode(1);
-            dupeList.appendToTail(1);
-            dupeList.appendToTail(2);
-            dupeList.appendToTail(3);
-            dupeList.appendToTail(4);
-            dupeList.appendToTail(5);
-            dupeList.appendToTail(5);
-            dupeList.appendToTail(6);
-            dupeList.appendToTail(7);
-            dupeList.appendToTail(8);
-            dupeList.appendToTail(9);
-            dupeList.appendToTail(9);
-            dupeList.appendToTail(9);
-            dupeList.appendToTail(9);
-            dupeList.appendToTail(9);
-            dupeList.appendToTail(9);
-            dupeList.appendToTail(10);
+            dupeList.AppendToTail(1);
+            dupeList.AppendToTail(2);
+            dupeList.AppendToTail(3);
+            dupeList.AppendToTail(4);
+            dupeList.AppendToTail(5);
+            dupeList.AppendToTail(5);
+            dupeList.AppendToTail(6);
+            dupeList.AppendToTail(7);
+            dupeList.AppendToTail(8);
+            dupeList.AppendToTail(9);
+            dupeList.AppendToTail(9);
+            dupeList.AppendToTail(9);
+            dupeList.AppendToTail(9);
+            dupeList.AppendToTail(9);
+            dupeList.AppendToTail(9);
+            dupeList.AppendToTail(10);
             Console.Write("\n-------------------------------------------------------------------\n");    
             traverseList(dupeList);            
             Console.Write("\n-------------------------------------------------------------------\n");    
@@ -250,7 +250,7 @@ namespace Algorithms
             queue.Add(8);
             queue.Add(10);
             
-            while (!queue.isEmpty())
+            while (!queue.IsEmpty())
             {
                 Console.WriteLine(queue.Remove());
             }

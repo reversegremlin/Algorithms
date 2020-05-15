@@ -67,7 +67,7 @@ namespace Algorithms
             return first.data;
         }
 
-        public bool isEmpty() 
+        public bool IsEmpty() 
         {
             return first == null;
         }
