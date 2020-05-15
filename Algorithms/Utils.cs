@@ -266,8 +266,45 @@ namespace Algorithms
 
             Console.WriteLine(tree.Contains(1));
             Console.WriteLine(tree.Contains(20));
+            //TODO: Pre and Post Order
+
             tree.InOrderTraversal();
-            
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Graph");
+
+            Graph graph = new Graph();
+
+            /*
+             *               1
+             *             / | \
+             *            2  5  9
+             *           /  / \   \
+             *          3  6   8   10
+             *         /  / 
+             *        4  7
+             *
+             */
+
+            for (int i = 1; i <= 10; i++)
+            {
+                graph.AddNode(i);
+            }
+
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(3, 4);
+            graph.AddEdge(1, 5);
+            graph.AddEdge(5, 6);
+            graph.AddEdge(6, 7);
+            graph.AddEdge(5, 8);
+            graph.AddEdge(1, 9);
+            graph.AddEdge(9, 10);
+
+            Console.WriteLine(graph.hasPathDFS(1, 7));
+            Console.WriteLine(graph.hasPathDFS(6, 10));
+
+
+
         }
 
         private static List<int> MergeSort(List<int> unsorted)
