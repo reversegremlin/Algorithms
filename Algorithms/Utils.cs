@@ -254,6 +254,19 @@ namespace Algorithms
             {
                 Console.WriteLine(queue.Remove());
             }
+
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Trees");
+            TreeNode tree = new TreeNode(8);
+            tree.Insert(4);
+            tree.Insert(10);
+            tree.Insert(2);
+            tree.Insert(6);
+            tree.Insert(20);
+
+            Console.WriteLine(tree.Contains(1));
+            Console.WriteLine(tree.Contains(20));
+            tree.InOrderTraversal();
             
         }
 
