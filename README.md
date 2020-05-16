@@ -28,6 +28,4 @@
 
 *Binary Search Tree (contains, traverse)
 
-*Graph (DFS)
-
-
+*Graph (DFS, BFS)
