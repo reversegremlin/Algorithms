@@ -36,7 +36,7 @@ namespace Algorithms
         {
             Node s = GetNode(source);
             Node d = GetNode(destination);
-            s.adjacent.AddFirst(d);
+            s.adjacent.AddLast(d);
         }
 
 
@@ -104,13 +104,14 @@ namespace Algorithms
 
             HashSet<int> visited = new HashSet<int>();
 
+            // add the source to the queue (where we are starting the search)
+
             nextToVisit.Enqueue(s);
 
             //  while there are still things to visit
 
             while (nextToVisit.Count > 0)
             {
-
                 // dequeue the next node from the queue
 
                 Node node = nextToVisit.Dequeue();
@@ -129,7 +130,7 @@ namespace Algorithms
                 {
                     continue;
                 }
-                
+
                 visited.Add(node.id);
 
                 foreach  (Node child in node.adjacent)
@@ -140,5 +141,4 @@ namespace Algorithms
             return false;
         }
     }
-
 }
