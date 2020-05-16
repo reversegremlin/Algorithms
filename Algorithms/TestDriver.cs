@@ -189,14 +189,14 @@ namespace Algorithms
             LinkedListNode n1 = LinkedListNode1.DeleteNode(LinkedListNode1, 11);
 
             Console.Write("\n-------------------------------------------------------------------\n");
-            traverseList(LinkedListNode1);
+            TraverseList(LinkedListNode1);
             Console.Write("\n-------------------------------------------------------------------\n");    
             for (int i = 1; i < 21; i++)
             {
                 int num = random.Next(1, 100);
                 LinkedListNode1.AppendToTail(num);
             }
-            traverseList(LinkedListNode1);
+            TraverseList(LinkedListNode1);
             Console.Write("\n-------------------------------------------------------------------\n");    
 
             int[] nums = { 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10 };
@@ -220,15 +220,15 @@ namespace Algorithms
             Console.Write("\n-------------------------------------------------------------------\n");    
             Console.WriteLine("Linked List With Duplicates");
 
-            traverseList(dupeList);            
+            TraverseList(dupeList);            
             Console.Write("\n-------------------------------------------------------------------\n");    
             Console.WriteLine("Delete Duplicates");
-            deleteDuplicates(dupeList);
-            traverseList(dupeList);
+            DeleteDuplicates(dupeList);
+            TraverseList(dupeList);
             Console.Write("\n-------------------------------------------------------------------\n");    
             Console.WriteLine("removing 2nd from Last");
             RemoveKthFromLast(dupeList, 2);
-            traverseList(dupeList);
+            TraverseList(dupeList);
             Console.Write("\n-------------------------------------------------------------------\n");    
             Console.WriteLine("Stack");
 
@@ -312,8 +312,8 @@ namespace Algorithms
             graph.AddEdge(1, 9);
             graph.AddEdge(9, 10);
 
-            Console.WriteLine(graph.hasPathDFS(1, 7));
-            Console.WriteLine(graph.hasPathDFS(6, 10));
+            Console.WriteLine(graph.HasPathDFS(1, 7));
+            Console.WriteLine(graph.HasPathDFS(6, 10));
 
 
 

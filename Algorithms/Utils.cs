@@ -329,16 +329,16 @@ namespace Algorithms
             }
             return true;
         }
-        public static void traverseList(LinkedListNode head)
+        public static void TraverseList(LinkedListNode head)
         {
             if (head == null)
             {
                 return;
             }
             Console.WriteLine(head.data);
-            traverseList(head.next);
+            TraverseList(head.next);
         }
-        public static LinkedListNode deleteDuplicates(LinkedListNode head)
+        public static LinkedListNode DeleteDuplicates(LinkedListNode head)
         {
             LinkedListNode  n = head;
 

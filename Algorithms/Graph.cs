@@ -43,19 +43,19 @@ namespace Algorithms
         // Main Depth First Search, is there a path in the graph from source to destination.
         // keep the visited nodes in a hashset, instead of keeping a visited flag in the node object
         
-        public bool hasPathDFS(int source, int destination)
+        public bool HasPathDFS(int source, int destination)
         {
             Node s = GetNode(source);
             Node d = GetNode(destination);
 
             HashSet<int> visited = new HashSet<int>();
-            return hasPathDFS(s, d, visited);
+            return HasPathDFS(s, d, visited);
 
         }
 
         // helper method that does all the real work
 
-        private bool hasPathDFS(Node source, Node destination, HashSet<int> visited)
+        private bool HasPathDFS(Node source, Node destination, HashSet<int> visited)
         {
             // if it's been visited, we know there is  no path
 
@@ -79,11 +79,17 @@ namespace Algorithms
 
             foreach (Node child in source.adjacent )
             {
-                if (hasPathDFS(child, destination, visited))
+                if (HasPathDFS(child, destination, visited))
                 {
                     return true;
                 }
             }
+            return false;
+        }
+
+        public bool HasPathBFS(Node source, Node destination)
+        {
+
             return false;
         }
     }
