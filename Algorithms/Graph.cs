@@ -87,9 +87,35 @@ namespace Algorithms
             return false;
         }
 
-        public bool HasPathBFS(Node source, Node destination)
+        public bool HasPathBFS(int source, int destination)
         {
+            Node s = GetNode(source);
+            Node d = GetNode(destination);
 
+            LinkedList<Node> nextToVisit = new LinkedList<Node>();
+            HashSet<int> visited = new HashSet<int>();
+            nextToVisit.AddLast(s);
+            while (nextToVisit.First != null && nextToVisit.Last != null)
+            {
+                Node node = nextToVisit.First();
+                nextToVisit.RemoveFirst();
+
+                if (node == d)
+                {
+                    return true;
+                }
+                
+                if (visited.Contains(node.id))
+                {
+                    continue;
+                }
+                visited.Add(node.id);
+
+                foreach  (Node child in node.adjacent)
+                {
+                    nextToVisit.AddLast(child);
+                }
+            }
             return false;
         }
     }

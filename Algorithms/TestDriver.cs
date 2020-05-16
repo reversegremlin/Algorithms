@@ -311,12 +311,19 @@ namespace Algorithms
             graph.AddEdge(5, 8);
             graph.AddEdge(1, 9);
             graph.AddEdge(9, 10);
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Graph  Path DFS");
+
 
             Console.WriteLine(graph.HasPathDFS(1, 7));
             Console.WriteLine(graph.HasPathDFS(6, 10));
 
 
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Graph  Path  BFS");
 
+            Console.WriteLine(graph.HasPathBFS(1, 7));
+            Console.WriteLine(graph.HasPathBFS(6, 10));
         }
     }
 }
