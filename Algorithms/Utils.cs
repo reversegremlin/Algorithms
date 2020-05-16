@@ -266,9 +266,18 @@ namespace Algorithms
 
             Console.WriteLine(tree.Contains(1));
             Console.WriteLine(tree.Contains(20));
-            //TODO: Pre and Post Order
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("PreOrder Traversal");            
+            tree.PreOrderTraversal();
 
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("InOrder Traversal");
             tree.InOrderTraversal();
+
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("PostOrder Traversal");
+            tree.PostOrderTraversal();
+
             Console.Write("\n-------------------------------------------------------------------\n");    
             Console.WriteLine("Graph");
 

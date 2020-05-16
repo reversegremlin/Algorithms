@@ -83,5 +83,32 @@ namespace Algorithms
                 right.InOrderTraversal();
             }
         }
+
+        public void PreOrderTraversal()
+        {
+            Console.WriteLine(data);
+            if (left != null)
+            {
+                left.PreOrderTraversal();
+            }
+            if (right != null)
+            {
+                right.PreOrderTraversal();
+            }
+        }
+
+        public void PostOrderTraversal()
+
+        {
+            if (left != null)
+            {
+                left.PostOrderTraversal();
+            }
+            if (right != null)
+            {
+                right.PostOrderTraversal();
+            }
+            Console.WriteLine(data);
+        }
     }
 }
