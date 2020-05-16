@@ -203,23 +203,23 @@ namespace Algorithms
 
             //LinkedList<int> dupeList = new LinkedList<int>(nums);
             LinkedListNode dupeList = new LinkedListNode(1);
-            dupeList.AppendToTail(1);
-            dupeList.AppendToTail(2);
-            dupeList.AppendToTail(3);
-            dupeList.AppendToTail(4);
-            dupeList.AppendToTail(5);
-            dupeList.AppendToTail(5);
-            dupeList.AppendToTail(6);
-            dupeList.AppendToTail(7);
-            dupeList.AppendToTail(8);
-            dupeList.AppendToTail(9);
-            dupeList.AppendToTail(9);
-            dupeList.AppendToTail(9);
-            dupeList.AppendToTail(9);
-            dupeList.AppendToTail(9);
-            dupeList.AppendToTail(9);
-            dupeList.AppendToTail(10);
+
+            for (int i = 1; i <= 10; i++)
+            {
+                if  (i  % 2 == 0)
+                {
+                    dupeList.AppendToTail(i);
+                    dupeList.AppendToTail(i);
+                }
+                else 
+                {
+                    dupeList.AppendToTail(i);
+                }
+            }
+
             Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Linked List With Duplicates");
+
             traverseList(dupeList);            
             Console.Write("\n-------------------------------------------------------------------\n");    
             Console.WriteLine("Delete Duplicates");
@@ -282,10 +282,10 @@ namespace Algorithms
             tree.PostOrderTraversal();
 
             Console.Write("\n-------------------------------------------------------------------\n");    
-            Console.WriteLine("Graph");
+            Console.WriteLine("Graph  Path ");
 
             Graph graph = new Graph();
-
+             
             /*
              *               1
              *             / | \
