@@ -48,6 +48,8 @@ namespace Algorithms
             Node s = GetNode(source);
             Node d = GetNode(destination);
 
+            // use a hashset to track visited nodes
+
             HashSet<int> visited = new HashSet<int>();
             return HasPathDFS(s, d, visited);
 
@@ -89,31 +91,50 @@ namespace Algorithms
 
         public bool HasPathBFS(int source, int destination)
         {
+            //get the nodes from the dictionary
+
             Node s = GetNode(source);
             Node d = GetNode(destination);
 
-            LinkedList<Node> nextToVisit = new LinkedList<Node>();
+            // use a queue to track nodes to visit
+
+            Queue<Node> nextToVisit = new Queue<Node>();
+
+            // use a hashset to track visited nodes
+
             HashSet<int> visited = new HashSet<int>();
-            nextToVisit.AddLast(s);
-            while (nextToVisit.First != null && nextToVisit.Last != null)
+
+            nextToVisit.Enqueue(s);
+
+            //  while there are still things to visit
+
+            while (nextToVisit.Count > 0)
             {
-                Node node = nextToVisit.First();
-                nextToVisit.RemoveFirst();
+
+                // dequeue the next node from the queue
+
+                Node node = nextToVisit.Dequeue();
+
+                // check to see if it matches where we are going
 
                 if (node == d)
                 {
                     return true;
                 }
                 
+                // skip over it if it has been visited and bail on the rest of this loop
+                // going to the next unvisited node
+
                 if (visited.Contains(node.id))
                 {
                     continue;
                 }
+                
                 visited.Add(node.id);
 
                 foreach  (Node child in node.adjacent)
                 {
-                    nextToVisit.AddLast(child);
+                    nextToVisit.Enqueue(child);
                 }
             }
             return false;
