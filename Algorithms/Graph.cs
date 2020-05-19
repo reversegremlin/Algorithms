@@ -112,7 +112,7 @@ namespace Algorithms
 
             while (nextToVisit.Count > 0)
             {
-                // dequeue the next node from the queue
+                // dequeue the node we are visiting from the queue
 
                 Node node = nextToVisit.Dequeue();
 

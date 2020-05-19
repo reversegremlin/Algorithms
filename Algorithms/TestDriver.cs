@@ -324,6 +324,11 @@ namespace Algorithms
 
             Console.WriteLine(graph.HasPathBFS(1, 7));
             Console.WriteLine(graph.HasPathBFS(6, 10));
+            Console.Write("\n-------------------------------------------------------------------\n");    
+            Console.WriteLine("Base62");
+            string str = Base62Converter.Encode(999999999);;
+            Console.WriteLine(str);
+            Console.WriteLine(Base62Converter.Decode(str));
         }
     }
 }
