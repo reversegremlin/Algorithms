@@ -329,6 +329,10 @@ namespace Algorithms
             string str = Base62Converter.Encode(999999999);;
             Console.WriteLine(str);
             Console.WriteLine(Base62Converter.Decode(str));
+
+            Console.Write("\n-------------------------------------------------------------------\n");    
+
+            
         }
     }
 }

@@ -8,23 +8,23 @@ namespace Algorithms
 
     public static class Base62Converter {
 
-        public static readonly string corpus = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        public static readonly string alphaNumerics = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-        public static readonly int myBase = corpus.Length;
+        public static readonly int baseLength = alphaNumerics.Length;
 
         public static string Encode(int seed)
         {
-            if (seed == 0)
+            if (seed < baseLength)
             {
-                return corpus[0].ToString();
+                return alphaNumerics[seed].ToString();
             }
 
-            string result = String.Empty;
+            string result = "";
             
             while (seed > 0)
             {
-                result += corpus[seed % myBase];
-                seed = seed / myBase;
+                result += alphaNumerics[seed % baseLength];
+                seed = seed / baseLength;
             }
             return String.Join(String.Empty, result.Reverse());
         }
@@ -35,7 +35,7 @@ namespace Algorithms
 
             foreach (char c in encodedString)
             {
-                i = (i * myBase) + corpus.IndexOf(c);
+                i = (i * baseLength) + alphaNumerics.IndexOf(c);
             }
             return i;
         }
